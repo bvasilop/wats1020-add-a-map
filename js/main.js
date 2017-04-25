@@ -15,41 +15,62 @@ $(document).ready(function(){
 
 // create leaflet for object inside #map-container div
 
-var map = L.map('mapid').setview([46.878, -121.760], 13);
+// create a map within the map-container div
+var map = L.map('map-container').setView([46.843, -121.670], 11);
 
-// create layer for street view
-var osmURL = 'http://{s}.title.openstreetmap.org/{z}/{y}.png';
+var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-	var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
 
-	// create layer for sattelite view
-	var satLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
-    	attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
-    	subdomains: ['otile1','otile2','otile3','otile4']
-	}).addTo(map);
 
-	// create layer for map view layer
-	var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
-    	attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
-    	subdomains: ['otile1','otile2','otile3','otile4']
-	});
+//Add map layers
+var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
 
-	//Create a marker for the specified location
-	var marker = L.marker([46.852, -121.760]).addTo(map);
-	//Create a message on the marker creater above
-	marker.bindPopup("<b>Hello from Mt. Rainier!</b>.").openPopup();
+var satLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
+    subdomains: ['otile1','otile2','otile3','otile4']
+});
 
-	//Create Layer Control: Choose Sat View, Map View, or Street View
-	var mapLayers = {
-		  "Satellite": satLayer, //satLayer map image
-    	"Map View": drawLayer, //mapView map image
-    	"Open Street Maps": osm //streeView map image
-	};
+var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
+    subdomains: ['otile1','otile2','otile3','otile4']
+});
 
-	L.control.layers(mapLayers).addTo(map); //adding controls to map
+var mapLayers = {
+    "Satellite": satLayer,
+    "Map View": drawLayer,
+    "Open Street Maps": osm
+};
+
+L.control.layers(mapLayers).addTo(map);
+    satLayer.addTo(map);
+
+
+//show markers with popups at no fewer than 3 interesting locations.
+var marker = L.marker([46.852, -121.760]).addTo(map);
+    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com">Visit Rainier!</a>');
+
+var marker = L.marker([46.845757, -121.767565]).addTo(map);
+    marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)');
+
+var marker = L.marker([46.869047, -121.517128]).addTo(map);
+    marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)');
+
+var marker = L.marker([46.785836, -121.735372]).addTo(map);
+    marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)');
+
+var circle = L.circle([46.927725, -121.493720], 1000, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    }).addTo(map);
+    circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
+
+
 
 });
+
+
 
 // TODO: Add 2 layers to your map you have visuals. Use the Open Street Maps
 // tiles served through the MapQuest CDN. Consult this example to set up
