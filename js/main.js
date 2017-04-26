@@ -21,11 +21,30 @@ var map = L.map('map-container').setView([46.843, -121.670], 11);
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
+
+  var satLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'bvasilop.0ed6442b',
+    accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
+  });
+
+  var drawLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+
+    id: 'bvasilop.37f9a541',
+    accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
+  });
+
+
 
 
 //Add map layers
-var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
 
+var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
+/*
 var satLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
     subdomains: ['otile1','otile2','otile3','otile4']
@@ -35,7 +54,7 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
     subdomains: ['otile1','otile2','otile3','otile4']
 });
-
+*/
 var mapLayers = {
     "Satellite": satLayer,
     "Map View": drawLayer,
@@ -65,6 +84,8 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
     fillOpacity: 0.5,
     }).addTo(map);
     circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
+
+
 
     /* smooth scrolling effects */
 
