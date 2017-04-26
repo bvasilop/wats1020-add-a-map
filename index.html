@@ -28,7 +28,7 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -69,9 +69,57 @@
                    for the images. If you are using the Mt. Rainier images, then
                    there are readymade captions available from the Wikipedia
                    source page. -->
+
+        <div id="carousel-image" class="carousel slide">
+          <!-- Indicators -->
+          <ol class="carousel-indicators hidden-xs">
+            <li data-target="#carousel-image" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-image" data-slide-to="1"></li>
+            <li data-target="#carousel-image" data-slide-to="2"></li>
+            <li data-target="#carousel-image" data-slide-to="3"></li>
+            <li data-target="#carousel-image" data-slide-to="4"></li>
+            <li data-target="#carousel-image" data-slide-to="5"></li>
+            <li data-target="#carousel-image" data-slide-to="6"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active images">
+              <img class="img-responsive img-full" src="img/carousel/Mount_Rainier_sunset_and_clouds.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Flickr_-_The_U.S._Army_-_Jump_over_Mt._Rainier.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Mount_Rainier_-_Paradise_-_Dead_Horse_Creek_Trail_-_August_2014_-_01.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Mount_Rainier_-_Paradise_Meadow_in_July_03.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Mount_Rainier_and_lake_reflection.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Mount_Rainier_from_Paradise_meadow,_August_2014_-_03.jpg" alt="">
+            </div>
+            <div class="item images">
+              <img class="img-responsive img-full" src="img/carousel/Nisqually_River_near_Cougar_Rock_01.jpg" alt="">
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-image" data-slide="prev">
+            <span class="icon-prev"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-image" data-slide="next">
+            <span class="icon-next"></span>
+          </a>
+        </div>
+
       </div>
     </div>
 
+    
     <div class="container">
       <blockquote>
         &ldquo;Of all the fire mountains which, like beacons, once blazed along the Pacific Coast, Mount Rainier is the noblest.&rdquo;
