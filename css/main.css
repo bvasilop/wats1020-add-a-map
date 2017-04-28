@@ -67,3 +67,20 @@
   max-height: 600px;
   object-position: 50% 50%;
 }
+
+/* HOME CLASS */
+.home {
+  display: block;
+  margin: auto;
+}
+
+/* BLOCKQUOTE */
+blockquote {
+  border: none;
+}
+
+/*TABS */
+.tab-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #e87a30;
+}
