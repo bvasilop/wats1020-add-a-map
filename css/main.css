@@ -1,6 +1,69 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-#map-container { height: 400px;
+/* BODY */
+ body {
+   font-family: 'Open Sans', sans-serif;
+   padding: 0;
+   margin: 0;
+   background-color: #edeeef;
  }
+ /* NAV BAR */
+ nav ul {
+   text-align: right;
+   margin: 0;
+ }
+
+ .navbar-toggle{
+ z-index: 10;
+ }
+
+ .navbar-brand {
+   position: absolute;
+   left: 50%;
+   margin-left: -50px !important;
+   display: block;
+   padding-top: 5px;
+ }
+
+ .navbar .navbar-brand {
+   padding-top: 15px;
+ }
+ .navbar .navbar-brand .logo {
+   width: 72.7px;
+   height: 38.6px
+ }
+
+ .navbar-nav.nav-justified > li{
+   float:none;
+ }
+
+ #nav-list a {
+   text-align: center;
+ }
+
+ /* MAP CONTAINER */
+#map-container { height: 400px; }
+
+/* JUMBOTRON */
+.jumbotron {
+  background-color: #edeeef;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 100px;
+}
+
+/* CAROUSEL IMAGES */
+.carousel, .item, .active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.img-full {
+  object-fit: cover;
+  width: 100%;
+  max-height: 600px;
+  object-position: 50% 50%;
+}

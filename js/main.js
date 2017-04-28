@@ -10,6 +10,13 @@
 // will run once DOM is ready for JS to execute
 $(document).ready(function(){
 
+
+  // carousel
+  $('.carousel').carousel({
+    interval: 3500
+  });
+
+  
 // TODO: Inside of your on ready handler, invoke the Leaflet.js library
 // to draw a map in your `#map-container` div.
 
@@ -85,6 +92,17 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
     }).addTo(map);
     circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
 
+/* tabs*/
+    $('#tab-buttons a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
+/* tabs
+$('#myTabs a[href="#profile"]').tab('show') // Select tab by name
+$('#myTabs a:first').tab('show') // Select first tab
+$('#myTabs a:last').tab('show') // Select last tab
+$('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
+*/
 
 
     /* smooth scrolling effects */
