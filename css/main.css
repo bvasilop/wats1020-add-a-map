@@ -3,7 +3,8 @@
    ========================================================================== */
 /* BODY */
  body {
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
+   font-size: 18px;
    padding: 0;
    margin: 0;
    background-color: #edeeef;
@@ -27,6 +28,7 @@
  }
 
  .navbar .navbar-brand {
+   font-family: 'Bevan', 'Montserrat', sans-serif;
    padding-top: 22px;
     font-size: 27px;
  }
