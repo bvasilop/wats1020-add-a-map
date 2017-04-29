@@ -82,16 +82,16 @@ L.control.layers(mapLayers).addTo(map);
 
 //show markers with popups at no fewer than 3 interesting locations.
 var marker = L.marker([46.852, -121.760]).addTo(map);
-    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com">Visit Mt. Rainier!</a>');
+    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com" target="_blank">Visit Mt. Rainier!</a>');
 
 var marker = L.marker([46.845757, -121.767565]).addTo(map);
-    marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)<br><a href="http://peakbagger.com/peak.aspx?pid=2298">Point Success Info</a>');
+    marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)<br><a href="http://peakbagger.com/peak.aspx?pid=2298" target="_blank">Point Success Info</a>');
 
 var marker = L.marker([46.869047, -121.517128]).addTo(map);
-    marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)<br><a href="http://stayrainier.com/chinook-passtipsoo-lake/">Visit Tipsoo Lake!</a>');
+    marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)<br><a href="http://stayrainier.com/chinook-passtipsoo-lake/" target="_blank">Visit Tipsoo Lake!</a>');
 
 var marker = L.marker([46.785836, -121.735372]).addTo(map);
-    marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)<br><a href="https://visitrainier.com/places-and-attractions/park-regions/paradise/">Visit Paradise!</a>');
+    marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)<br><a href="https://visitrainier.com/places-and-attractions/park-regions/paradise/" target="_blank">Visit Paradise!</a>');
 
 var circle = L.circle([46.927725, -121.493720], 1000, {
     color: 'red',
