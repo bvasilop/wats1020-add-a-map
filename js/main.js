@@ -53,13 +53,7 @@ var streetLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
     accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
   });
 
-
-
-
-//Add map layers
-
-
-/*
+/*Map Layer provided by shawn example
 var satLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
     subdomains: ['otile1','otile2','otile3','otile4']
@@ -70,6 +64,7 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
     subdomains: ['otile1','otile2','otile3','otile4']
 });
 */
+
 var mapLayers = {
     "Map View": drawnLayer,
     "Satellite": satLayer,
@@ -79,19 +74,52 @@ var mapLayers = {
 L.control.layers(mapLayers).addTo(map);
     drawnLayer.addTo(map);
 
-
 //show markers with popups at no fewer than 3 interesting locations.
 var marker = L.marker([46.852, -121.760]).addTo(map);
+// mouseover events for L.marker
+   marker.bindPopup("Popup content");
+   marker.on('mouseover', function (e) {
+       this.openPopup();
+   });
+   marker.on('mouseleave', function (e) {
+       this.closePopup();
+   });
+
     marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com" target="_blank">Visit Mt. Rainier!</a>');
-
+// location marker for Point Success
 var marker = L.marker([46.845757, -121.767565]).addTo(map);
+// mouseover events for L.marker
+   marker.bindPopup("Popup content");
+   marker.on('mouseover', function (e) {
+       this.openPopup();
+   });
+   marker.on('mouseleave', function (e) {
+       this.closePopup();
+   });
     marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)<br><a href="http://peakbagger.com/peak.aspx?pid=2298" target="_blank">Point Success Info</a>');
-
+// location marker for Tipsoo Lake
 var marker = L.marker([46.869047, -121.517128]).addTo(map);
+// mouseover events for L.marker
+  marker.bindPopup("Popup content");
+  marker.on('mouseover', function (e) {
+    this.openPopup();
+});
+  marker.on('mouseleave', function (e) {
+    this.closePopup();
+});
     marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)<br><a href="http://stayrainier.com/chinook-passtipsoo-lake/" target="_blank">Visit Tipsoo Lake!</a>');
-
+// location marker for Paradise
 var marker = L.marker([46.785836, -121.735372]).addTo(map);
+// mouseover events for L.marker
+  marker.bindPopup("Popup content");
+  marker.on('mouseover', function (e) {
+    this.openPopup();
+});
+  marker.on('mouseleave', function (e) {
+    this.closePopup();
+});
     marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)<br><a href="https://visitrainier.com/places-and-attractions/park-regions/paradise/" target="_blank">Visit Paradise!</a>');
+// location marker for Crystal Mountain Ski Resort
 
 var circle = L.circle([46.927725, -121.493720], 1000, {
     color: 'red',
@@ -106,9 +134,7 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
   $(this).tab('show')
 });
 
-
-
-    /* smooth scrolling effects */
+  /* smooth scrolling effects */
 
 
  $(document).ready(function(){
@@ -116,7 +142,7 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
    $("a").on('click', function(event) {
 
      // Make sure this.hash has a value before overriding default behavior
-     if (this.hash !== "") {
+     if (this.hash !== "800") {
        // Prevent default anchor click behavior
        event.preventDefault();
 
@@ -135,11 +161,4 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
      } // End if
    });
  });
-
-
-
-
-
-
-
 });
