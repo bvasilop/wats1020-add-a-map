@@ -67,8 +67,8 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
 
 var mapLayers = {
     "Map View": drawnLayer,
-    "Satellite": satLayer,
-    "Open Street Maps": streetLayer
+    "Satellite View": satLayer,
+    "Street View": streetLayer
 };
 
 L.control.layers(mapLayers).addTo(map);
