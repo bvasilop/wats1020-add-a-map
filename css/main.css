@@ -21,8 +21,8 @@
 
  .navbar-brand {
    position: absolute;
-   left: 42%;
-   margin-left: 0px !important;
+   left: 50%;
+   margin-left: -118px !important;
    display: block;
    padding-top: 5px;
  }
