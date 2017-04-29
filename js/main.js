@@ -11,24 +11,32 @@
 $(document).ready(function(){
 
 
-  // carousel
+  // carousel for images
   $('.carousel').carousel({
-    interval: 3500
+    interval: 5500
   });
 
-  
+
 // TODO: Inside of your on ready handler, invoke the Leaflet.js library
 // to draw a map in your `#map-container` div.
 
 // create leaflet for object inside #map-container div
 
 // create a map within the map-container div
-var map = L.map('map-container').setView([46.843, -121.670], 11);
+var map = L.map('map-container').setView([46.843, -121.670], 9);
 
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+var osmAttrib='Map data © <a href="http://openstreetmap.org">StreetMap</a> contributors';
 var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
+
+var streetLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+  maxZoom: 18,
+  id: 'bvasilop.53e23efe',
+  accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
+});
+
 
   var satLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -37,11 +45,11 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttr
     accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
   });
 
-  var drawLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  var drawnLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
 
-    id: 'bvasilop.37f9a541',
+    id: 'bvasilop.cd971359',
     accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
   });
 
@@ -50,7 +58,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttr
 
 //Add map layers
 
-var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
+
 /*
 var satLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap"   target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a     href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img  src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
@@ -63,18 +71,18 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
 });
 */
 var mapLayers = {
+    "Map View": drawnLayer,
     "Satellite": satLayer,
-    "Map View": drawLayer,
-    "Open Street Maps": osm
+    "Open Street Maps": streetLayer
 };
 
 L.control.layers(mapLayers).addTo(map);
-    satLayer.addTo(map);
+    drawnLayer.addTo(map);
 
 
 //show markers with popups at no fewer than 3 interesting locations.
 var marker = L.marker([46.852, -121.760]).addTo(map);
-    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com">Visit Rainier!</a>');
+    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com">Visit Mt. Rainier!</a>');
 
 var marker = L.marker([46.845757, -121.767565]).addTo(map);
     marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)');
@@ -97,12 +105,7 @@ var circle = L.circle([46.927725, -121.493720], 1000, {
   e.preventDefault()
   $(this).tab('show')
 });
-/* tabs
-$('#myTabs a[href="#profile"]').tab('show') // Select tab by name
-$('#myTabs a:first').tab('show') // Select first tab
-$('#myTabs a:last').tab('show') // Select last tab
-$('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
-*/
+
 
 
     /* smooth scrolling effects */
@@ -140,14 +143,3 @@ $('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
 
 
 });
-
-
-
-// TODO: Add 2 layers to your map you have visuals. Use the Open Street Maps
-// tiles served through the MapQuest CDN. Consult this example to set up
-// the map tiles layers:
-
-
-// TODO: Customize that Map to show markers with popups at no fewer than 3
-// interesting locations. (You'll need to figure out the latitude/longitude for
-// these locations using a mapping tool such as Google Maps.)
