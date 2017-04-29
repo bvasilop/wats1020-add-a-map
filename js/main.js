@@ -121,12 +121,14 @@ var marker = L.marker([46.785836, -121.735372]).addTo(map);
     marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)<br><a href="https://visitrainier.com/places-and-attractions/park-regions/paradise/" target="_blank">Visit Paradise!</a>');
 // location marker for Crystal Mountain Ski Resort
 
+
+// circle marker for Crystal Mountain Resort
 var circle = L.circle([46.927725, -121.493720], 1000, {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
     }).addTo(map);
-    circle.bindPopup('<b>Crystal Mountain Ski Resort</b>');
+    circle.bindPopup('<b>Crystal Mountain</b><br>Elevation: 7,002 ft (2,134 m)<br><a href="https://crystalmountainresort.com/" target="_blank">Visit Crystal Mountain Ski Resort</a>');
 
 /* tabs*/
     $('#tab-buttons a').click(function (e) {
