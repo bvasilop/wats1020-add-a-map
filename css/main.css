@@ -22,7 +22,7 @@
  .navbar-brand {
    position: absolute;
    left: 50%;
-   margin-left: -50px !important;
+   margin-left: -80px !important;
    display: block;
    padding-top: 5px;
  }

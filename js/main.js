@@ -88,7 +88,7 @@ var marker = L.marker([46.845757, -121.767565]).addTo(map);
     marker.bindPopup('<b>Point Success</b><br>Elevation: 14,164 feet (4,300 m)');
 
 var marker = L.marker([46.869047, -121.517128]).addTo(map);
-    marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)');
+    marker.bindPopup('<b>Tipsoo Lake</b><br>Elevation: 5,290 ft (1,612 m)<br><a href="https://en.wikipedia.org/wiki/Tipsoo_Lake">Visit Tipsoo Lake!</a>');
 
 var marker = L.marker([46.785836, -121.735372]).addTo(map);
     marker.bindPopup('<b>Paradise</b><br>Elevation: 5,400 ft (1,645 m)');
