@@ -122,13 +122,17 @@ var marker = L.marker([46.785836, -121.735372]).addTo(map);
 // location marker for Crystal Mountain Ski Resort
 
 
-// circle marker for Crystal Mountain Resort
-var circle = L.circle([46.927725, -121.493720], 1000, {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    }).addTo(map);
-    circle.bindPopup('<b>Crystal Mountain</b><br>Elevation: 7,002 ft (2,134 m)<br><a href="https://crystalmountainresort.com/" target="_blank">Visit Crystal Mountain Ski Resort</a>');
+// location marker for Crystal Mountain Resort
+var marker = L.marker([46.927725, -121.493720]).addTo(map);
+// mouseover events for L.marker
+marker.bindPopup("Popup content");
+marker.on('mouseover', function (e) {
+  this.openPopup();
+});
+marker.on('mouseleave', function (e) {
+  this.closePopup();
+});
+    marker.bindPopup('<b>Crystal Mountain</b><br>Elevation: 7,002 ft (2,134 m)<br><a href="https://crystalmountainresort.com/" target="_blank">Visit Crystal Mountain Ski Resort</a>');
 
 /* tabs*/
     $('#tab-buttons a').click(function (e) {
