@@ -1,11 +1,3 @@
-/* Begin by adding your on ready handler here, and then create the
-   rest of your functions inside the on ready handler.
-
-   (Note that you do not need to manually call Bootstrap functions in
-   your Javascript because Bootstrap will automatically recognize your
-   HTML structures and invoke the proper JS code accordingly. Be sure
-   to reference the Bootstrap documentation.)
-*/
 
 // will run once DOM is ready for JS to execute
 $(document).ready(function(){
@@ -17,19 +9,14 @@ $(document).ready(function(){
   });
 
 
-// TODO: Inside of your on ready handler, invoke the Leaflet.js library
-// to draw a map in your `#map-container` div.
-
-// create leaflet for object inside #map-container div
-
-// create a map within the map-container div
+// create a variable for and add coordinates for Mt. Rainier map within the map-container div
 var map = L.map('map-container').setView([46.843, -121.670], 9);
 
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 var osmAttrib='Map data © <a href="http://openstreetmap.org">StreetMap</a> contributors';
 var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
-
+// create map for street layer using Mapbox
 var streetLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
   maxZoom: 18,
@@ -37,7 +24,7 @@ var streetLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
   accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
 });
 
-
+// create map for satellite layer using Mapbox
   var satLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -45,6 +32,7 @@ var streetLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
     accessToken: 'pk.eyJ1IjoiYnZhc2lsb3AiLCJhIjoiY2oxeTRyaTF6MDA3ZTMzbnUyeGU4OGU0bCJ9.tpBVd1s-paEv6otpjh2bDA'
   });
 
+// create map for drawn layer using Mapbox
   var drawnLayer = L.tileLayer( 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
@@ -64,7 +52,7 @@ var drawLayer = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.p
     subdomains: ['otile1','otile2','otile3','otile4']
 });
 */
-
+// create object for mapLayers to select which map to use within map div
 var mapLayers = {
     "Map View": drawnLayer,
     "Satellite View": satLayer,
@@ -84,8 +72,7 @@ var marker = L.marker([46.852, -121.760]).addTo(map);
    marker.on('mouseleave', function (e) {
        this.closePopup();
    });
-
-    marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com" target="_blank">Visit Mt. Rainier!</a>');
+   marker.bindPopup('<b>Welcome to Mt. Rainier!</b><br>This peak is 14,417 feet (4,394 m) high.<br><a href="http://visitrainier.com" target="_blank">Visit Mt. Rainier!</a>');
 // location marker for Point Success
 var marker = L.marker([46.845757, -121.767565]).addTo(map);
 // mouseover events for L.marker
@@ -134,16 +121,14 @@ marker.on('mouseleave', function (e) {
 });
     marker.bindPopup('<b>Crystal Mountain</b><br>Elevation: 7,002 ft (2,134 m)<br><a href="https://crystalmountainresort.com/" target="_blank">Visit Crystal Mountain Ski Resort</a>');
 
-/* tabs*/
+// tabs for viewing each section of content individually
     $('#tab-buttons a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
 });
 
-  /* smooth scrolling effects */
-
-
- $(document).ready(function(){
+  // will run once DOM is ready for JS to execute
+   $(document).ready(function(){
    // Add smooth scrolling to all links
    $("a").on('click', function(event) {
 
@@ -151,17 +136,14 @@ marker.on('mouseleave', function (e) {
      if (this.hash !== "800") {
        // Prevent default anchor click behavior
        event.preventDefault();
-
        // Store hash
        var hash = this.hash;
-
        // Using jQuery's animate() method to add smooth page scroll
        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
        $('html, body').animate({
-         scrollTop: $(hash).offset().top
+         scrollTop: $(hash).offset().top -80
        }, 800, function(){
-
-         // Add hash (#) to URL when done scrolling (default click behavior)
+       // Add hash (#) to URL when done scrolling (default click behavior)
          window.location.hash = hash;
        });
      } // End if
