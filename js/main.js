@@ -142,7 +142,7 @@ marker.on('mouseleave', function (e) {
        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
        // -80 refers to scroll offset amount to compensate for fixed nav
        $('html, body').animate({
-         scrollTop: $(hash).offset().top -80
+         scrollTop: $(hash).offset().top -112
        }, 800, function(){
        // Add hash (#) to URL when done scrolling (default click behavior)
          window.location.hash = hash;
