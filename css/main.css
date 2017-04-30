@@ -1,7 +1,7 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/* BODY */
+/* ------body elements------*/
  body {
    font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
    font-size: 18px;
@@ -9,7 +9,7 @@
    margin: 0;
    background-color: #edeeef;
  }
- /* NAV BAR */
+/* ------nav bar elements------*/
  nav ul {
    text-align: right;
    margin: 0;
@@ -50,8 +50,7 @@
     width: 212.7px;
     height: 56.6px;
     opacity: 0.9;
-
- }
+}
 
  .navbar-nav.nav-justified > li{
    float:none;
@@ -61,29 +60,27 @@
    text-align: center;
  }
 
- /* MAP CONTAINER */
+ /* ------body elements------*/
 #map-container { height: 400px; }
 
-/* JUMBOTRON */
+/* ------jumbotron elements------*/
 .jumbotron {
   background-color: #edeeef;
-
   padding-top: 100px;
 }
+
 .jumbotron h1, .jumbotron .h1 {
   font-family: 'Sanchez', 'Montserrat', sans-serif;
   font-size: 46px;
 }
 
-/* CAROUSEL IMAGES */
+/* ------carousel images------*/
 .carousel, .item, .active {
     height: 100%;
 }
-
 .carousel-inner {
     height: 100%;
 }
-
 .img-full {
   object-fit: cover;
   width: 100%;
@@ -91,24 +88,24 @@
   object-position: 50% 50%;
 }
 
-/* HOME CLASS */
+/* ------home class elements------*/
 .home {
   display: block;
   margin: auto;
 }
 
-/* BLOCKQUOTE */
+/* ------blockquote elements------*/
 blockquote {
   border: none;
 }
 
-/*TABS */
+/* ------tabs styling------*/
 .tab-content h2 {
   font-family: 'Montserrat', sans-serif;
   color: #e87a30;
 }
 
-/* DESCRIPTION LISTS */
+/* ------description list elements------*/
 dt {
   font-weight: bold;
   text-decoration: underline;
@@ -119,7 +116,7 @@ dd {
   padding: 0 0 0.5em 0;
   }
 
-/* UNORDERED LISTS STYLE */
+/* ------unordered list styling------*/
 ul {
   list-style-type: none;
   list-style-position:inside;
@@ -127,7 +124,7 @@ ul {
   padding:0;
 }
 
-/* TEXT CENTER CLASS */
+/* ------text center class------*/
 .text-center {
   text-align: center;
 }
